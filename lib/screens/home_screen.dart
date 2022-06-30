@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:greggs_app/model/item.dart';
+import 'package:greggs_app/screens/item_details_screen.dart';
 import 'package:greggs_app/utils.dart';
 import 'package:greggs_app/widgets/basketIcon.dart';
+import 'package:greggs_app/widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,14 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Greggs'),
-          actions: [
-            BasketIcon(
-              onTap: () {},
-            ),
-          ],
-        ),
+        appBar: const CustomAppBar(),
         body: SafeArea(
           child: FutureBuilder<List<Item>?>(
               future: readJson(),
@@ -43,6 +38,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemBuilder: (BuildContext context, int index) {
                         return Card(
                           child: ListTile(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ItemDetailsScreen(
+                                  item: itemsSnapshot.data![index],
+                                ),
+                              ),
+                            ),
                             leading: CachedNetworkImage(
                               imageUrl: itemsSnapshot.data![index].thumbnailUri,
                               placeholder: (context, url) =>
@@ -51,9 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const Icon(Icons.error),
                             ),
                             title: Text(itemsSnapshot.data![index].articleName),
-                            trailing: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text('Add'),
+                            trailing: Text(
+                              '£ ${itemsSnapshot.data![index].eatOutPrice.toString()}',
                             ),
                           ),
                         );

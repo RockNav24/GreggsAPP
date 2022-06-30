@@ -21,7 +21,9 @@ class _MyAppState extends State<MyApp> {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: Scaffold(
+          body: HomeScreen(),
+        ),
       ),
     );
   }
