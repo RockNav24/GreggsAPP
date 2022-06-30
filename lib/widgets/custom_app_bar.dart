@@ -10,10 +10,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: const Text('Greggs'),
-      actions: [
-        BasketIcon(
-          onTap: () {},
-        ),
+      actions: const [
+        BasketIcon(),
       ],
     );
   }

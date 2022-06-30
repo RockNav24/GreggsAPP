@@ -24,8 +24,9 @@ class ItemDetailsScreen extends StatelessWidget {
             children: [
               CachedNetworkImage(
                 imageUrl: item.imageUri,
-                placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
               Row(
@@ -34,6 +35,22 @@ class ItemDetailsScreen extends StatelessWidget {
                   Text(
                     item.articleName,
                     style: Theme.of(context).textTheme.headline6,
+                  ),
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.black,
+                    child: Consumer<BasketProvider>(
+                        builder: (context, basketProvider, child) {
+                      int itemsInBucket = 0;
+
+                      for (Item basketItem in basketProvider.basket) {
+                        if (basketItem.articleCode == item.articleCode) {
+                          itemsInBucket++;
+                        }
+                      }
+
+                      return Text(itemsInBucket.toString());
+                    }),
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
@@ -46,6 +63,24 @@ class ItemDetailsScreen extends StatelessWidget {
                 ],
               ),
               const Divider(),
+              Container(
+                height: 100,
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      'Eat in    £${item.eatInPrice.toString()}',
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    Text(
+                      'Eat out £${item.eatOutPrice.toString()}',
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                  ],
+                ),
+              ),
               Text(
                 item.customerDescription,
                 style: Theme.of(context).textTheme.bodyText1,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:greggs_app/screens/basket_screen.dart';
 import 'package:greggs_app/screens/home_screen.dart';
 import 'package:greggs_app/providers/basket_provider.dart';
+import 'package:greggs_app/screens/item_details_screen.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatefulWidget {
@@ -19,11 +21,13 @@ class _MyAppState extends State<MyApp> {
           create: (_) => BasketProvider(),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: HomeScreen(),
-        ),
+        routes: {
+          'home': (context) => const HomeScreen(),
+          'basket': (context) => const BasketScreen(),
+        },
+        initialRoute: 'home',
       ),
     );
   }
