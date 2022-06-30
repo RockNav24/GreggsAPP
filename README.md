@@ -12,9 +12,9 @@ that it can add a Greggs Sausage Roll to a basket.
 - Then it converts the json to an object called 'Item'.
 
 There are 3 screens in total,
-    - HomeScreen
-    - Item Detailed Screen 
-    - Basket Screen 
+- HomeScreen
+- Item Detailed Screen 
+- Basket Screen 
 
 - Every time you press the add buy button on the item detailed screen, an item will get added to the basket. 
 
