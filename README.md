@@ -23,13 +23,13 @@ There are 3 screens in total,
 
 Screenshots of the app demo 
 <p float="left">
-  <img src="screenshots/Screenshot_20220630-234030.jpg" width="100" />
-  <img src="/img2.png" width="100" /> 
-  <img src="/img3.png" width="100" />
+  <img src="screenshots/Screenshot_20220630-234030.jpg" width="300" />
+    <img src="screenshots/Screenshot_20220630-234035.jpg" width="300" />
+    <img src="screenshots/Screenshot_20220630-234039.jpg" width="300" />
+    <img src="screenshots/Screenshot_20220630-234052.jpg" width="300" />
+    <img src="screenshots/Screenshot_20220630-234055.jpg" width="300" />
+    
+
 </p>
-![alt text](screenshots/Screenshot_20220630-234030.jpg)
-![alt text](screenshots/Screenshot_20220630-234035.jpg)
-![alt text](screenshots/Screenshot_20220630-234039.jpg)
-![alt text](screenshots/Screenshot_20220630-234052.jpg)
-![alt text](screenshots/Screenshot_20220630-234055.jpg)
+
 
