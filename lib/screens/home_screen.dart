@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:greggs_app/model/item.dart';
 import 'package:greggs_app/screens/item_details_screen.dart';
 import 'package:greggs_app/utils.dart';
-import 'package:greggs_app/widgets/basketIcon.dart';
 import 'package:greggs_app/widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {

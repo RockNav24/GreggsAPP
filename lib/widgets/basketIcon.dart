@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greggs_app/providers/basket_provider.dart';
 import 'package:greggs_app/screens/basket_screen.dart';
-import 'package:greggs_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class BasketIcon extends StatelessWidget {

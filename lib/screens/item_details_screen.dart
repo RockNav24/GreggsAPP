@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:greggs_app/model/item.dart';
 import 'package:greggs_app/providers/basket_provider.dart';
-import 'package:greggs_app/screens/home_screen.dart';
 import 'package:greggs_app/widgets/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
