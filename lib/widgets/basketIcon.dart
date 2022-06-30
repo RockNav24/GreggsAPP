@@ -43,7 +43,7 @@ class BasketIcon extends StatelessWidget {
                   child: Center(
                     child: Text(
                       Provider.of<BasketProvider>(context)
-                          .getItemCount()
+                          .getItemCount
                           .toString(),
                       style: const TextStyle(
                         color: Colors.white,

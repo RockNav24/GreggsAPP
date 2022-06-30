@@ -16,38 +16,38 @@ class BasketScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: Consumer<BasketProvider>(
         builder: (context, basketProvider, child) {
-          HashSet<Item> itemCategory = HashSet();
-          for (Item basketItem in basketProvider.basket) {
-            itemCategory.add(basketItem);
-          }
           return ListView.builder(
-            itemCount: itemCategory.length,
+            itemCount: basketProvider.itemCategory.length,
             itemBuilder: (BuildContext context, int index) {
               double totalCategoryPrice = 0;
               int totalItems = 0;
 
               for (Item basketItem in basketProvider.basket) {
-                if (itemCategory.elementAt(index) == basketItem) {
+                if (basketProvider.itemCategory.elementAt(index) ==
+                    basketItem) {
                   totalCategoryPrice +=
-                      itemCategory.elementAt(index).eatOutPrice;
+                      basketProvider.itemCategory.elementAt(index).eatOutPrice;
                   totalItems++;
                 }
               }
               return Card(
                 child: ListTile(
                   leading: CachedNetworkImage(
-                    imageUrl: itemCategory.elementAt(index).thumbnailUri,
+                    imageUrl: basketProvider.itemCategory
+                        .elementAt(index)
+                        .thumbnailUri,
                     placeholder: (context, url) =>
                         const CircularProgressIndicator(),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                   ),
-                  title: Text(itemCategory.elementAt(index).articleName),
+                  title: Text(
+                      basketProvider.itemCategory.elementAt(index).articleName),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                          '£ ${itemCategory.elementAt(index).eatOutPrice} X $totalItems  = '),
+                          '£ ${basketProvider.itemCategory.elementAt(index).eatOutPrice} X $totalItems  = '),
                       Text(
                         ' £ ${totalCategoryPrice.toStringAsFixed(2)}',
                       ),
@@ -55,7 +55,8 @@ class BasketScreen extends StatelessWidget {
                   ),
                   onLongPress: () {
                     Provider.of<BasketProvider>(context, listen: false)
-                        .deleteItemFromBasket(itemCategory.elementAt(index));
+                        .deleteItemFromBasket(
+                            basketProvider.itemCategory.elementAt(index));
                   },
                 ),
               );
